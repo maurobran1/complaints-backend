@@ -1,0 +1,36 @@
+GET http://localhost:5000/api/complaints
+content-type: application/json
+
+{
+    "minDate": "2011-01-01",
+    "maxDate": "2011-01-01",
+    "type": "Mal estacionado",
+    "state": "Received"
+}
+###
+GET http://localhost:5000/api/complaints/5f8669321eb0d8277c9dc706
+###
+PUT http://localhost:5000/api/complaints/5f8669321eb0d8277c9dc706
+content-type: application/json
+
+{
+    "type": "Mal estacionamiento",
+    "address": "Av. Santa Fe 550",
+    "plate": "ABM 404",
+    "lat": "-33.743476",
+    "lng": "-61.957561"
+}
+
+###
+POST http://localhost:5000/api/complaints/
+content-type: application/json
+
+{
+    "type": "infracción fultera",
+    "address": "Roca 1127",
+    "lat": "12.444",
+    "lng": "98.555"
+}
+###
+DELETE http://localhost:5000/api/complaints/5f8669321eb0d8277c9dc706
+###
