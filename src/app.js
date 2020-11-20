@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require("cors")
 const morgan = require('morgan')
 const routes = require('./routes/complaints.routes')
+const complaintsTypeRoutes = require('./routes/complaintsType.routes')
+const complaintsStateRoutes = require('./routes/complaintsState.routes')
 
 const app = express()
 
@@ -17,5 +19,7 @@ app.use(express.json())
 
 //routes
 app.use('/api/complaints', routes)
+app.use('/api/complaintstype', complaintsTypeRoutes)
+app.use('/api/complaintsstate', complaintsStateRoutes)
 
 module.exports = app

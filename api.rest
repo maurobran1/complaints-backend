@@ -1,36 +1,74 @@
-GET http://localhost:5000/api/complaints
+GET http://localhost:5000/api/complaints/
+###
+GET http://localhost:5000/api/complaints/
+###
+PUT http://localhost:5000/api/complaints/5fadbf2a9424af245cf4acab
 content-type: application/json
 
 {
-    "minDate": "2011-01-01",
-    "maxDate": "2011-01-01",
-    "type": "Mal estacionado",
-    "state": "Received"
-}
-###
-GET http://localhost:5000/api/complaints/5f8669321eb0d8277c9dc706
-###
-PUT http://localhost:5000/api/complaints/5f8669321eb0d8277c9dc706
-content-type: application/json
-
-{
-    "type": "Mal estacionamiento",
-    "address": "Av. Santa Fe 550",
-    "plate": "ABM 404",
-    "lat": "-33.743476",
-    "lng": "-61.957561"
-}
+    "location": {
+      "coordinates": {
+        "lat": 33.3333,
+        "lng": -33.3333
+      },
+      "address": "Sarmiento 333"
+    },
+    "typeID": "5fadad469528e114a0da147d",
+    "stateID": "5fadb39b0cf94f1d687a5a4e",
+    "plate": "SPX 416",
+    "notes": "DESDE API.REST. Esto viene ocurriendo desde aproximadamente 2 años. Hicimos constantes reclamos sin respuesta alguna.",
+    "date": "2020-10-11T00:57:45.300Z",
+    "createdAt": "2020-11-12T23:03:06.375Z",
+    "updatedAt": "2020-11-12T23:03:06.375Z"
+  }
 
 ###
 POST http://localhost:5000/api/complaints/
 content-type: application/json
 
 {
-    "type": "infracción fultera",
-    "address": "Roca 1127",
-    "lat": "12.444",
-    "lng": "98.555"
+    "typeID": "5fadad469528e114a0da147d",
+    "plate": "AAAAAAAAAAAAAAAAAAA",
+    "notes": "DESDE API.REST. Esto viene ocurriendo desde aproximadamente 2 años. Hicimos constantes reclamos sin respuesta alguna.",
+    "date": "2020-10-11T00:57:45.300Z",
+    "location": {
+        "coordinates":{
+            "lat": "-33.74291166419408",
+            "lng": "-61.97544763500975"
+        },
+        "address": "Sarmiento 333"
+    }
 }
 ###
-DELETE http://localhost:5000/api/complaints/5f8669321eb0d8277c9dc706
+DELETE http://localhost:5000/api/complaints/5fb73c1f62476c270069f8a4
 ###
+GET http://localhost:5000/api/complaints
+content-type: application/json
+
+{
+    "minDate": "2011-01-01",
+    "maxDate": "2022-01-01",
+}
+///////////////////////////
+###
+GET http://localhost:5000/api/complaintstype
+###
+POST http://localhost:5000/api/complaintsstate
+content-type: application/json
+
+{
+    "state": "Recibida"
+}
+###
+DELETE  http://localhost:5000/api/complaintsstate/5fadb3820c47650f70df4177
+###
+POST http://localhost:5000/api/complaints/test
+content-type: application/json
+
+{
+    "images": [
+      "asdasd1",
+      "asdasd2",
+      "asdasd3"
+    ]
+  }
