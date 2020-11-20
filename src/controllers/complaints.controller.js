@@ -42,16 +42,10 @@ complaintsController.addComplaint = async (req, res) => {
     try {
         const { typeID, plate, notes, date, location } = req.body
 
-        // let imagePath
-        // if (req.file) {
-        //     imagePath = req.file.path
-        //     console.log('ImagePath: ' + imagePath)
-        // }
-
         let imagePaths = [];
         if (req.files) {
             for (const file of req.files) {
-                imagePaths.push("http://localhost:5000/" + file.path)
+                imagePaths.push(`http://localhost:${process.env.PORT}/` + file.path)
             }
         }
 
@@ -68,16 +62,11 @@ complaintsController.addComplaint = async (req, res) => {
 }
 
 complaintsController.updateComplaint = async (req, res) => {
-    const { images, image, typeID, stateID, plate, location, notes, date } = req.body
-    let imagePath
-    if (req.file) {
-        imagePath = req.file.path
-    }
-    console.log(imagePath)
+    const { typeID, stateID } = req.body
     try {
         const complaintType = await ComplaintType.findById(typeID)
         const complaintState = await ComplaintState.findById(stateID)
-        const oldComplaint = await Complaint.findByIdAndUpdate(req.params.id, { images, image, typeID: complaintType._id, type: complaintType.type, stateID: complaintState._id, state: complaintState.state, plate, location, imagePath, notes, date }, { omitUndefined: true })
+        const oldComplaint = await Complaint.findByIdAndUpdate(req.params.id, { typeID: complaintType._id, type: complaintType.type, stateID: complaintState._id, state: complaintState.state }, { omitUndefined: true })
         res.json(oldComplaint)
     } catch (error) {
         console.log(error)
@@ -95,16 +84,5 @@ complaintsController.deleteAllComplaints = async (req, res) => {
     res.json(deletedComplaints.deletedCount + " deleted complaints")
 }
 
-complaintsController.addComplaintTest = async (req, res) => {
-    try {
-        const { images } = req.body
-        const newComplaint = new Complaint({ images })
-        await newComplaint.save()
-        res.json(newComplaint)
-    } catch (error) {
-        console.log(req.body)
-        res.json(error);
-    }
-}
 
 module.exports = complaintsController

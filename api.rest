@@ -40,14 +40,14 @@ content-type: application/json
     }
 }
 ###
-DELETE http://localhost:5000/api/complaints/5fb73c1f62476c270069f8a4
+DELETE http://localhost:5000/api/complaints/5fb834b9bea9511588123029
 ###
 GET http://localhost:5000/api/complaints
 content-type: application/json
 
 {
     "minDate": "2011-01-01",
-    "maxDate": "2022-01-01",
+    "maxDate": "2011-01-01"
 }
 ///////////////////////////
 ###
@@ -62,13 +62,3 @@ content-type: application/json
 ###
 DELETE  http://localhost:5000/api/complaintsstate/5fadb3820c47650f70df4177
 ###
-POST http://localhost:5000/api/complaints/test
-content-type: application/json
-
-{
-    "images": [
-      "asdasd1",
-      "asdasd2",
-      "asdasd3"
-    ]
-  }

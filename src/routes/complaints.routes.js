@@ -26,11 +26,10 @@ const upload = multer({
 })
 
 router.get('/', complaintsController.getComplaints)
-router.post('/', upload.array('image'), complaintsController.addComplaint)
+router.post('/', upload.array('photos'), complaintsController.addComplaint)
 router.get('/:id', complaintsController.getComplaint)
-router.put('/:id', upload.array('image'), complaintsController.updateComplaint)
+router.put('/:id', upload.array('photos'), complaintsController.updateComplaint)
 router.delete('/:id', complaintsController.deleteComplaint)
 router.delete('/', complaintsController.deleteAllComplaints)
-router.post('/test', complaintsController.addComplaintTest)
 
 module.exports = router
