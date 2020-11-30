@@ -14,11 +14,8 @@ const complaintSchema = new Schema({
         address: { type: String, required: false },
     },
     date: { type: Date, required: false },
-    imagePath: { type: String, required: false },
     imagePaths: [{ type: String, required: false }],
-    image: { type: String, required: false },
     notes: { type: String, required: false },
-    images: [{ type: String, required: false }]
 }, {
     timestamps: true,
     versionKey: false

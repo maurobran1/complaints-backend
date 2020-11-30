@@ -13,21 +13,14 @@ complaintsStateController.getComplaintState = async (req, res) => {
 
 complaintsStateController.addComplaintState = async (req, res) => {
     const { state } = req.body
+    console.log(state);
     const newComplaintState = new ComplaintState({ state })
-    // await newComplaintType.save()
-    // res.json(newComplaintType)
-    await newComplaintState.save((err, product) => {
-        if (err) {
-            res.json(err)
-        }
-        if (product) {
-            res.json(product)
-        }
-    })
+    await newComplaintState.save()
+    res.json(newComplaintState)
 }
 
 complaintsStateController.updateComplaintState = async (req, res) => {
-    const { type: state } = req.body
+    const { state } = req.body
     const oldComplaintState = await ComplaintState.findByIdAndUpdate(req.params.id, { state }, { omitUndefined: true })
     res.json(oldComplaintState)
 }

@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 
 const complaintStateSchema = new Schema({
-    state: { type: String, required: false },
+    state: { type: String, required: true },
 }, {
     timestamps: true,
     versionKey: false

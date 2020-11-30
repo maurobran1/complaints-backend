@@ -13,8 +13,8 @@ content-type: application/json
       },
       "address": "Sarmiento 333"
     },
-    "typeID": "5fadad469528e114a0da147d",
-    "stateID": "5fadb39b0cf94f1d687a5a4e",
+    "typeID": "5fbdd94e310c2e195cd8726c",
+    "stateID": "5fbdd902310c2e195cd8726a",
     "plate": "SPX 416",
     "notes": "DESDE API.REST. Esto viene ocurriendo desde aproximadamente 2 años. Hicimos constantes reclamos sin respuesta alguna.",
     "date": "2020-10-11T00:57:45.300Z",
@@ -51,13 +51,13 @@ content-type: application/json
 }
 ///////////////////////////
 ###
-GET http://localhost:5000/api/complaintstype
+GET http://localhost:5000/api/complaintsstate
 ###
 POST http://localhost:5000/api/complaintsstate
 content-type: application/json
 
 {
-    "state": "Recibida"
+    "state": "Pagada"
 }
 ###
 DELETE  http://localhost:5000/api/complaintsstate/5fadb3820c47650f70df4177

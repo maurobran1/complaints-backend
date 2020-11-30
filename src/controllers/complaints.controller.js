@@ -66,7 +66,7 @@ complaintsController.updateComplaint = async (req, res) => {
     try {
         const complaintType = await ComplaintType.findById(typeID)
         const complaintState = await ComplaintState.findById(stateID)
-        const oldComplaint = await Complaint.findByIdAndUpdate(req.params.id, { typeID: complaintType._id, type: complaintType.type, stateID: complaintState._id, state: complaintState.state }, { omitUndefined: true })
+        const oldComplaint = await Complaint.findByIdAndUpdate(req.params.id, { typeID, type: complaintType.type, stateID, state: complaintState.state }, { omitUndefined: true })
         res.json(oldComplaint)
     } catch (error) {
         console.log(error)
